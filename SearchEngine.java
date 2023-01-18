@@ -10,7 +10,7 @@ class Handler implements URLHandler {
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
             return String.format(stringList.toString());
-        } else if (url.getPath().contains("/interact")) {
+        } else if (url.getPath().contains("/interact")) { //A switch case would be great for this if-then chain
 
             String[] parameters = url.getQuery().split("=");
             if (parameters[0].equals("s")) {
@@ -35,6 +35,16 @@ class Handler implements URLHandler {
                 stringList.add(substring);
 
                 return String.format("The substring, " + substring + ", has been added");
+            } else if (parameters[0].equals("d")){
+
+                String substring = parameters[1];
+
+                stringList.remove(substring);
+
+                return String.format(substring + " removed! This is the current list: " + stringList.toString());
+            } else if (parameters[0].equals("t")){
+
+                return String.format(url.getQuery().toString() + " here's a space " + url.getQuery().split("=").getClass().getSimpleName());
             }
         } else {
             // System.out.println("Path: " + url.getPath());
