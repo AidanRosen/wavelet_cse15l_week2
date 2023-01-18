@@ -44,7 +44,7 @@ class Handler implements URLHandler {
                 return String.format(substring + " removed! This is the current list: " + stringList.toString());
             } else if (parameters[0].equals("t")){
 
-                return String.format(url.getQuery().toString() + " here's a space " + url.getQuery().split("=").getClass().getSimpleName());
+                return String.format(url.getQuery().toString() + " here's a space " + url.getQuery().split("=").getClass().getSimpleName());//https://www.javatpoint.com/how-to-check-data-type-in-java
             }
         } else {
             // System.out.println("Path: " + url.getPath());
